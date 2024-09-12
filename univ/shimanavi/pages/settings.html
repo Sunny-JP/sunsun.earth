@@ -1,0 +1,20 @@
+<div class="page" data-name="settings">
+  <div class="navbar">
+    <div class="navbar-bg"></div>
+    <div class="navbar-inner sliding">
+      <div class="title">JR 列車運行状況</div>
+        <div class="right">
+        <a href="#" class="link icon-only panel-open" data-panel="right">
+            <i class="icon f7-icons if-not-md">menu</i>
+            <i class="icon material-icons if-md">menu</i>
+        </a>
+        <button onclick="var ifr3=document.getElementsByName('ifr3')[0]; ifr3.src=ifr3.src;">
+    <i class="icon f7-icons if-not-md">arrow_clockwise</i>
+    <i class="icon material-icons if-md">refresh</i></button>
+        </div>
+    </div>
+  </div>
+  <div class="page-content">
+    <iframe name="ifr3" id="ifr3" src="https://trafficinfo.westjr.co.jp/sp/chugoku.html"></iframe>
+  </div>
+</div>

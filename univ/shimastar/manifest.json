@@ -1,0 +1,14 @@
+{
+    "name": "",
+    "short_name": "",
+    "description": "",
+    "icons": "",
+    "lang": "ja",
+    "dir": "ltr",
+    "scope": "./",
+    "start_url": "./",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "background_color": "",
+    "theme_color": ""
+}

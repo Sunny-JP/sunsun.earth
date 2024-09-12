@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <!--
+  Customize this policy to fit your own app's needs. For more guidance, see:
+      https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+  Some notes:
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+      * Enable inline JS: add 'unsafe-inline' to default-src
+  -->
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!--<meta name="theme-color" content="#007aff">-->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>しまナビ</title>
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="icon" href="assets/icons/favicon.png">
+
+  <link rel="stylesheet" href="framework7/framework7-bundle.min.css">
+  <link rel="stylesheet" href="css/style.css?ver=20240613">
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="components/loader.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0G2T8DNB8"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B0G2T8DNB8');
+  </script>
+<script>
+  function secretaddress() {
+	var mt = String.fromCharCode(49-11,66+31,127-15,102+9,116-1,56+3,132-23,66+31,134-29,84+24,139-23,102+9,65-7,109+6,138-21,84+26,129-19,117+4,58-12,72+31,141-31,105+10,139-29,57+7,131-28,90+19,120-23,94+11,124-16,46+0,114-15,87+24,117-8,8+30,101-4,84+28,127-16,100+15,76-17);
+	var ma = String.fromCharCode(137-22,87+30,123-13,82+28,143-22,26+20,121-18,80+30,144-29,103+7,73-9,72+31,125-16,70+27,106-1,84+24,75-29,87+12,123-12,90+19);
+	document.write('<input type="button" onclick="window.open('+mt+')" value="'+ma+'">');
+}
+</script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Right panel with reveal effect-->
+    <div class="panel panel-right panel-reveal theme-dark">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+              <div class="title">Extension</div>
+            </div>
+          </div>
+          <div class="page-content">
+            <div class="block">
+              <div id="更新メッセージ">[現在の設定]</div>
+              <div id="startnowset">未設定</div><br>
+              [設定]<br>
+              <form>
+                <label for="start">出発バス停:</label>
+                <div class="form-group">
+                  ▼<select id="startA" name="startA">
+                    <option value="北循環">北循環</option>
+                    <option value="あ行">あ行</option>
+                    <option value="か行">か行</option>
+                    <option value="さ行">さ行</option>
+                    <option value="た行">た行</option>
+                    <option value="な行">な行</option>
+                    <option value="は行">は行</option>
+                    <option value="ま行">ま行</option>
+                    <option value="や行">や-わ行</option>
+                  </select>｜
+                  ▼<br><select id="startB" name="startB">
+                  </select>
+                </div>
+                <label for="goal">到着バス停:</label>
+                <div class="form-group">
+                  ▼<select id="goalA" name="goalA">
+                    <option value="北循環">北循環</option>
+                    <option value="あ行">あ行</option>
+                    <option value="か行">か行</option>
+                    <option value="さ行">さ行</option>
+                    <option value="た行">た行</option>
+                    <option value="な行">な行</option>
+                    <option value="は行">は行</option>
+                    <option value="ま行">ま行</option>
+                    <option value="や行">や-わ行</option>
+                  </select>｜
+                  ▼<select id="goalB" name="goalB">
+                  </select>
+                </div>
+                <input id="i1" type="button" onclick="setVariables()" value="保存">
+              </form>
+            <br>
+            [謝辞]<br>
+            ・引用元サイト様<br>
+            <input type="button" onclick="window.open('https://mi.bus-navigation.jp/')" value="まつえ・いずもバスナビ"><br>
+            <input type="button" onclick="window.open('https://www.train-guide.westjr.co.jp/')" value="JR西日本 列車走行位置"><br>
+            <input type="button" onclick="window.open('https://trafficinfo.westjr.co.jp/')" value="JR西日本 列車運行情報"><br>
+            <br>
+            [About]<br>
+            ・iframeでの引用は著作権侵害にあたらないという見解
+            <input type="button" onclick="window.open('http://www.dmlp.org/legal-guide/linking-copyrighted-materials')" value="参考"><br>
+            ・このサイトに関するお問い合わせ
+            <script type="text/javascript">
+              secretaddress();
+            </script><br><br>
+            しまね交通機関ナビ ver.2.3.1<br>
+            最終更新 2024/06/28<br>
+            データベースとシステムで一部バス停の名称が異なります。その際は検索をお試しください。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Views/Tabs container -->
+    <div class="views tabs safe-areas">
+      <!-- Tabbar for switching views-tabs -->
+      <div class="toolbar toolbar-bottom tabbar-labels theme-dark">
+        <div class="toolbar-inner">
+          <a href="#view-home" class="tab-link tab-link-active">
+            <i class="icon f7-icons if-not-md">chevron_down</i>
+            <i class="icon material-icons if-md">expand_more</i>
+            <span class="tabbar-label"><div id="starttitle2"></div></span>
+          </a>
+          <a href="#view-about" class="tab-link">
+            <i class="icon f7-icons if-not-md">chevron_down</i>
+            <i class="icon material-icons if-md">expand_more</i>
+            <span class="tabbar-label"><div id="goaltitle2"></div></span>
+          </a>
+          <a href="#view-catalog" class="tab-link">
+            <i class="icon f7-icons if-not-md">clock_fill</i>
+            <i class="icon material-icons if-md">schedule</i>
+            <span class="tabbar-label">時刻表</span>
+          </a>
+          <a href="#view-form" class="tab-link">
+            <i class="icon f7-icons if-not-md">location_fill</i>
+            <i class="icon material-icons if-md">near_me</i>
+            <span class="tabbar-label">走行位置</span>
+          </a>
+          <a href="#view-settings" class="tab-link">
+            <i class="icon f7-icons if-not-md">exclamationmark_octagon_fill</i>
+            <i class="icon material-icons if-md">report</i>
+            <span class="tabbar-label">運行状況</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Your main view/tab, should have "view-main" class. It also has "tab-active" class -->
+      <div id="view-home" class="view view-main view-init tab tab-active">
+        <div class="page" data-name="home">
+          <!-- Top Navbar -->
+          <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner sliding">
+              <div class="title"><div id="starttitle"></div></div>
+              <div class="right">
+                <a href="#" class="link icon-only panel-open" data-panel="right">
+                  <i class="icon f7-icons if-not-md">menu</i>
+                  <i class="icon material-icons if-md">menu</i>
+                </a>
+                <button onclick="var ifr=document.getElementsByName('ifr')[0]; ifr.src=ifr.src;">
+            <i class="icon f7-icons if-not-md">arrow_clockwise</i>
+            <i class="icon material-icons if-md">refresh</i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scrollable page content-->
+          <div class="page-content">
+            <!--
+            <div id="notificationBar" class="notification-bar">
+              <span><b>【お知らせ】サイトのURLが変わりました。</b><br>
+                新URL：<a class="external" href="https://www.sunsun.earth/univ/shimanavi/">https://www.sunsun.earth/univ/shimanavi/</a><br>
+                旧サイトからの自動リダイレクト期限：2024/07/31<br>
+                各自でブックマーク等の更新をお願いします。</span><br>
+              <label>
+                  <input type="checkbox" id="dontShowAgain">
+                  今後このメッセージを表示しない
+              </label>
+              <button onclick="closeNotification()">閉じる</button>
+            </div>
+          -->
+            <div id="confirmation">
+              <h2>ご案内</h2>
+              <p>初回アクセス時およびキャッシュ消去時は，右上[三]ボタンからバス停を設定してください。</p>
+              <input id="s1" type="button" onclick="confirmAction()" value="OK"><br>
+              <label>
+                <input type="checkbox" id="dontShowAgain"> 次回から表示しない
+              </label>
+            </div>
+            <iframe name="ifr" id="ifr" src=""></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div id="view-about" class="view view-init tab" data-name="about" data-url="/about/">
+      </div>
+
+      <div id="view-catalog" class="view view-init tab" data-name="catalog" data-url="/catalog/">
+      </div>
+
+      <div id="view-form" class="view view-init tab" data-name="form" data-url="/form/">
+      </div>
+
+      <div id="view-settings" class="view view-init tab" data-name="settings" data-url="/settings/">
+      </div>
+    </div>
+
+    <!-- Framework7 library -->
+    <script src="framework7/framework7-bundle.min.js"></script>
+
+
+    <!-- App routes -->
+    <script src="js/routes.js"></script>
+    <!-- App store -->
+    <script src="js/store.js"></script>
+    <!-- App scripts -->
+    <script src="js/app.js"></script>
+    <script src="components/loader.js"></script>
+    <script>
+      function setVariables() {
+        const inputValue1 = document.getElementById("startB").value;
+        const inputValue2 = document.getElementById("goalB").value;
+        localStorage.setItem("storedstart", inputValue1);
+        localStorage.setItem("storedgoal", inputValue2);
+        const 更新メッセージ要素 = document.getElementById("更新メッセージ");
+        更新メッセージ要素.textContent = "[設定が変更されました。再読み込みします]";
+        document.getElementById("startnowset").textContent = inputValue1 + "から" + inputValue2 + "まで";
+        setTimeout(function() {
+          location.reload();
+        }, 1000);
+      };
+      const storedValue1 = localStorage.getItem("storedstart");
+      const storedValue2 = localStorage.getItem("storedgoal");
+      document.getElementById("ifr").src = "https://mi.bus-navigation.jp/wgsys/wgs/bus.htm?tabName=searchTab&selectedLandmarkCatCd=&from=" + encodeURIComponent(storedValue1) + "&fromType=&to=" + encodeURIComponent(storedValue2) + "&toType=&locale=ja&fromlat=&fromlng=&tolat=&tolng=&fromSignpoleKey=&routeLayoutCd=&bsid=1&fromBusStopCd=&toBusStopCd=&mapFlag=false&existYn=N&routeKey=&nextDiagramFlag=&diaRevisedDate=&timeTableDirevtionCd=";
+      document.getElementById("ifr1").src = "https://mi.bus-navigation.jp/wgsys/wgs/bus.htm?tabName=searchTab&selectedLandmarkCatCd=&from=" + encodeURIComponent(storedValue2) + "&fromType=&to=" + encodeURIComponent(storedValue1) + "&toType=&locale=ja&fromlat=&fromlng=&tolat=&tolng=&fromSignpoleKey=&routeLayoutCd=&bsid=1&fromBusStopCd=&toBusStopCd=&mapFlag=false&existYn=N&routeKey=&nextDiagramFlag=&diaRevisedDate=&timeTableDirevtionCd=";
+      document.getElementById("starttitle").textContent = storedValue1 + "➔" + storedValue2;
+      document.getElementById("goaltitle").textContent = storedValue2 + "➔" + storedValue1;
+      document.getElementById("starttitle2").textContent = storedValue2 + "行";
+      document.getElementById("goaltitle2").textContent = storedValue1 + "行";
+    </script>
+    <script>
+      const categories = {
+        "北循環": ["松江駅","くにびきメッセ前","北公園","学園南二丁目","母衣小学校前","附属学園入口","城東保育所入口","学園通り中央","学園通り北","川津","島根大学前","菅田庵入口","菅田町","大界入口","東奥谷町","淞北台団地入口","春日住宅前","田原谷池","春日三区","春日西","春日南","黒田町井出の内","ふなつ橋","黒田町","月照寺入口","宮ノ丁","堂形入口","交融橋","松江しんじ湖温泉駅","市役所前","県庁南入口","国宝松江城県庁前","県民会館前","須衛都久神社前","宍道湖大橋南詰","灘町","天神町中央","寺町","朝日町"],
+        "あ行": ["相生町","相生町入口","上谷","上谷南","上乃木","朝酌公民館前","朝酌郵便局前","朝日ヶ丘北","朝日ヶ丘西","朝日ヶ丘南","朝日橋","朝日町","あじさい団地","あじさい団地入口","阿須伎神社入口","あすなろ橋","出雲郷","出雲郷橋","天路前","荒茅入口","荒木小学校前","荒島駅","有","有原入口","イオン松江店前","イオンモール出雲前","生馬が丘","生馬が丘西","生馬が丘南","いこい家小浜前","石橋三丁目","石橋町","石橋四丁目","出雲工業高校前","ＪＲ出雲市駅","出雲市役所前","出雲須佐","出雲大社バスターミナル","出雲ドーム西","出雲二見","板津上口","市成","一の原","一畑バス本社","井出平","井出分","意東","稲佐の浜","稲佐の浜入口","岩汐","イングリッシュガーデン前","忌部神社","忌部宮内","上野医院前","魚町","うぐいす台","海潮温泉","海潮温泉上","海潮交流センター前","海潮小学校前","後山","内中原小学校前","運転免許センター","宇竜","宇竜入口","宇竜分れ","宇和佐","運動公園入口","駅通り四つ角","エコステーション","江島","恵曇","恵曇郵便局前","円光寺前","王陵の丘公園入口","大井","大井神社前","大井神社前フリー大海崎","大内谷","大川端","大木","大界","大界入口","大界中央","大島","大島上","大手前堀川遊覧船乗場・歴史館前","大橋北詰","大橋南詰","大庭小学校前","大庭十字路","大庭団原","大庭橋","大海崎","大海崎橋","大海崎フリー大海崎橋","岡住宅入口","小川尻","小倉","遅江","ＪＲ小田駅","小田駅前","乙立","小山団地前","小山町","小山保育園前","卸団地","温泉上","温泉下"],
+        "か行": ["開運稲荷前","回送","鍛冶橋","海上南","鑑町","垣の内","学園通り北","学園通り中央","学園南二丁目","鹿島中学校前","鹿島ふれあい館","鹿島ふれあい館入口","春日三区","春日住宅前","春日西","春日南","家庭学院入口","河南中学校入口","上宇部尾町","上塩冶車庫","上大川端","上口","上組","上組公民館前","上講武入口","上佐陀","亀尻","カラコロ工房前","川井入口","川津","川成橋","川原","川部入口","観音寺西","菅田庵入口","神門沖上","神戸橋西詰","神納橋","かんべの里","神前一丁目","願楽寺入口","北荒木","北垣","北公園","北講武","北消防署前","北田町","北殿町","北堀町","北山団地入口","吉兆館前","客ヶ丘入口","旧ＪＲ大社駅","教会入口","京橋","久多美","くにびき駐車場前","くにびきメッセ前","久米","熊山","久村","国屋","黒田","黒田町","黒田町安台原","黒田町井出の内","月照寺入口","月照寺前","県営住宅前","県合同庁舎前","原子力発電所入口","這田","県庁南入口","県民会館前","県立大学前","県立美術館","県立美術館前","小泉八雲記念館前","公園墓地","公園墓地入口","公園墓地管理棟前","公園墓地中央","ごうぎん大東支店","高専前","郷戸","交融橋","コーポ一畑入口","国際交流会館前","国宝松江城大手前","国宝松江城県庁前","古志橋東詰","古志原","古志原住宅前","古志原郵便局前","古曽志奥組","古曽志上組","古曽志公園入口","古代出雲歴史博物館前","湖南中学校前","小平","小丸子","こも沢","湖陵温泉入口","湖陵郵便局前"],
+        "さ行": ["雑賀三番街","才の谷入口","才ノ谷団地入口","才の峠","裁判所前","幸町","界橋","栄橋","坂本","佐草十字路","作橋","さざなみ学園前","佐田大橋","佐陀大橋","佐田行政センター前","佐太神社前","三中前","三本松","サンライフ松江前","ＪＡしまね大庭店前","ＪＦ加賀出張所前","自衛隊前","塩見縄手","塩見縄手入口","四季ヶ丘入口","四季ヶ丘北","四季ヶ丘西","四季ヶ丘東","四季ヶ丘南","四十間堀川","知谷橋","島根大学","島根大学病院","島根大学前","島根ワイナリー","市民会館前","下朝山","下組公民館前","下佐陀","下佐陀下","蛇池","市役所前","蛇島","社日公園前","授産センター","授産センター前","ジュンテンドー出雲南店前","床几山入口","商業高校前","城西公民館前","城東保育所入口","勝負","淞北台団地","淞北台団地入口","女子高校前","ショッピングタウンエル前","市立病院","白枝","白枝北","新大橋北詰","新大橋南詰","新小浜橋","神西沖分","宍道湖大橋北詰","宍道湖大橋南詰","宍道湖遊覧船乗場","新庄","新庄入口","真浄寺前","新土手入口","新縄手橋","新縄手橋・松江記念病院入口","新町","新山入口","須衛都久神社前","水源地","須賀","須賀下口","菅田町","須谷医院前","砂子坂","砂原","すまいる苑前","生協病院入口","生協病院前","清光院下","整肢学園前","正門前","善花","千本","千本つつじが丘","総合体育館前","荘厳寺前","祖子分","袖師町","袖師町西","ソフトビジネスパーク入口"],
+        "た行": ["胎泉寺前","大東駅前","大東税務署前","大東東町","大東郵便局前","第二県営住宅前","第二淞北台団地入口","太陽団地入口","鷹日神社入口","鷹日神社東入口","高松","宝谷団地前","嵩","武内神社前","竹崎団地入口","田島","嵩山入口","武代","嵩見団地入口","手角","立久恵峡","立久恵峡中","立花整骨院前","竪町","谷合橋","玉造温泉","玉造温泉入口","玉造温泉駅入口","玉湯学園前","田和山","田和山史跡公園","田原谷池","地域医療機構玉造病院","地域医療機構玉造病院入口","竹矢","千鳥町","千鳥南公園","茶山","中央病院","中央郵便局前","長者原","長者原団地前","築山新町","附谷入口","津田小学校入口","津田小学校前","津田明神入口","常松町","手貝","テクノアークしまね","寺田橋","寺津","寺津入口","寺町","天神団地入口","天神町","天神町中央","電鉄大社駅","手間","手間（馬潟）","天満宮前（出雲）","天満宮前","天倫寺前","堂形","堂形入口","東光台入口","堂ノ前","堂の前","東林寺前","殿川内","殿森","富原","富原三叉路","富原東"],
+        "な行": ["内陸団地","長池","中尾","中組公民館前","長沢","中天神","中戸","中之島","長海","中屋","中山","中山支所前","中山東","仲良し橋","灘町","七日市","南原","南平台入口","西生馬","西揖屋","西尾回転場","西尾団地入口","西川津","西津田七丁目","西谷","西の谷入口","西の浜","西の原住宅前","西原","西日吉団地前","西持田","西嫁島二丁目","虹","日赤病院入口","日赤病院前","二本橋","ニュー学園台入口","入江","農林高校前","乃木駅","乃木小学校入口","乃木二子塚古墳前","乃木保育所入口","乃白","乃白北","野原"],
+        "は行": ["橋本","橋本橋","畑尻","八幡前","八曽利","はなうみ苑","鼻曲","羽入","波入","浜佐田灘公民館前","浜根","浜乃木","浜乃木一丁目","浜乃木灘中","浜乃木七丁目","浜乃木二丁目","浜乃木六丁目","浜山公園入口","原","半瀬橋","半分","東上乃木","東朝日町","東朝日町宮の沖","東生馬","東揖屋","東奥谷町","東川津","東高校","東淞北台","東天神町","東入江","東福富","東福富フリー岩汐","比津","比津が丘入口","比津が丘三丁目","比津が丘郵便局前","桧山","日御碕神社","日御碕灯台","旭の森","姫神広場","姫原町","日吉","平賀","平口","平松","福祉センター前","福富団地入口","福富町","福富橋","福原","藤谷入口","布志名","布志名西","布志名東","附属学園入口","附属学園前","二子","二つ池","二俣","風土記の丘","風土記の丘入口","ふなつ橋","プラバホール入口","プラバホール東入口","プラバホール前","古江","古江小学校入口","ふれあい館","ふれあい館入口","文化センター入口","文化センター東入口","文化センター前","平成町車庫","平成ニュータウン北","平成ニュータウン西","平成ニュータウン東","平成ニュータウン南","奉納山入口","法吉","法吉回転場","法吉公会堂前","法吉公民館前","法吉団地","法吉団地東","法吉団地南","堀川遊覧船乗場","母衣小学校前","本郷","本庄","本庄中学校入口","本庄郵便局前"],
+        "ま行": ["馬潟","曲松","馬木","牧野内科医院前","槙山入口","幕島","枕木山入口","松江医療センター","松江医療センター前","松江駅","松江駅南口","松江記念病院","松江警察署前","松江市交通局","松江市役所鹿島支所前","松江市役所玉湯支所入口","松江しんじ湖温泉","松江しんじ湖温泉駅","馬橋","マリンプラザ前","馬渡","満願寺前","万原","万原入口","弥久賀神社前","水上","みせん広場前","道の駅本庄","御津","美月","御津越土","御津体育館下","南高校前","みなみ小学校前","南田町","南田町東","南殿町","南村","みのりが丘","美保関ターミナル","宮ノ丁","妙見下","明谷","向名","向名上","百足橋","麦島","向市場","売豆紀丁入口","盲学校入口","持田"],
+        "や行": ["八重垣神社","八重垣団地入口","八雲車庫","八雲台入口","やすらぎの里前","やそり橋","矢田","矢田朝酌","矢田フリー福富町","矢田渡し場","矢田渡し場フリー矢田","八束支所・中村元記念館前","八束体育館前","八束町・由志園入口","八束町由志園入口","八野神社入口","矢の原","矢の原入口","山奥公民館前","山崎入口","山路","山代住宅前","山代町","山代町入口","夕日公園前","郵便局前","由貴神社前","有楽町入口","ゆけむり大橋前","湯町東","ゆめタウン出雲前","要害橋","遥堪","養護学校乃木校舎前","養護学校前","横浜町","四絡コミュニティセンター前","四絡東","嫁ヶ島西","嫁ヶ島夕日公園","楽山入口","楽山公園入口","楽山橋","ラピタはまやま店前","わかあゆの里入口","和田","渡橋（安来）","渡橋","渡橋沖","渡橋北"]
+      };
+      document.getElementById("startA").addEventListener("change", updateSubcategories);
+      updateSubcategories();
+      function updateSubcategories() {
+        const selectedCategory = document.getElementById("startA").value;
+        const subcategorySelect = document.getElementById("startB");
+        subcategorySelect.innerHTML = "";
+        categories[selectedCategory].forEach((subcategory) => {
+          const option = document.createElement("option");
+          option.value = subcategory;
+          option.text = subcategory;
+          subcategorySelect.appendChild(option);
+        });
+      };
+      </script>
+      <script>
+      document.getElementById("goalA").addEventListener("change", updateSubcategories);
+      updateSubcategories();
+      function updateSubcategories() {
+        const selectedCategory = document.getElementById("goalA").value;
+        const subcategorySelect = document.getElementById("goalB");
+        subcategorySelect.innerHTML = "";
+        categories[selectedCategory].forEach((subcategory) => {
+          const option = document.createElement("option");
+          option.value = subcategory;
+          option.text = subcategory;
+          subcategorySelect.appendChild(option);
+        });
+      }
+    </script>
+    <script>
+      document.getElementById("startnowset").textContent = storedValue1 + "から" + storedValue2 + "まで";
+    </script>
+    <script>
+      // JavaScriptで確認画面を制御
+      function confirmAction() {
+          var dontShowAgain = document.getElementById("dontShowAgain").checked;
+          if (dontShowAgain) {
+              // クッキーをセットして確認画面を次回から表示しないようにする
+              document.cookie = "hideConfirmation=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+          }
+          document.getElementById("confirmation").style.display = "none";
+      }
+      // クッキーから確認画面の表示状態をチェック
+      window.onload = function() {
+          var hideConfirmation = getCookie("hideConfirmation");
+          if (!hideConfirmation) {
+              document.getElementById("confirmation").style.display = "block";
+          }
+      };
+      // クッキーを取得する関数
+      function getCookie(name) {
+          var value = "; " + document.cookie;
+          var parts = value.split("; " + name + "=");
+          if (parts.length == 2) {
+              return parts.pop().split(";").shift();
+          }
+      }
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (!localStorage.getItem('dontShowNotification')) {
+            document.getElementById('notificationBar').style.display = 'block';
+        } else {
+            document.getElementById('notificationBar').style.display = 'none';
+            document.getElementById('contentFrame').style.top = '0';
+            document.getElementById('contentFrame').style.height = '100%';
+        }
+    });
+
+    function closeNotification() {
+        if (document.getElementById('dontShowAgain').checked) {
+            localStorage.setItem('dontShowNotification', 'true');
+        }
+        document.getElementById('notificationBar').style.display = 'none';
+        document.getElementById('contentFrame').style.top = '0';
+        document.getElementById('contentFrame').style.height = '100%';
+    }
+  </script>
+</body>
+</html>

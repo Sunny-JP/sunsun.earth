@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>スケジュール</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../css/topstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi&family=Poppins&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B0G2T8DNB8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-B0G2T8DNB8');
+    </script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js'></script>
+    <script src="google-calendar/index.global.js"></script>
+    <script>
+      function converter(M){
+        var str="", str_as="";
+        for(var i=0;i<M.length;i++){
+          str_as = M.charCodeAt(i);
+          str += String.fromCharCode(str_as + 1);
+        }
+        return str;
+      }
+      var ad = converter(String.fromCharCode(106,96,105,104,108,96,107,116,48,47)+String.fromCharCode(63,102,108,96,104,107,45,98,110,108));
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          locale: 'ja',
+          dayCellContent: function(arg){
+            return arg.date.getDate();
+          },
+          contentHeight: 'auto',
+          eventSources: [
+            {
+              googleCalendarId: ad,
+            },
+            {
+            googleCalendarId: 'ja.japanese#holiday@group.v.calendar.google.com',
+            className: 'event_holiday'
+            }
+          ],
+          googleCalendarApiKey: 'AIzaSyC1jl5i6jd7bJ3kvUNoBuzawc9_DYMIrVQ',
+          eventTimeFormat: { hour: 'numeric', minute: '2-digit' },
+          eventClick: function(info) {
+            info.jsEvent.preventDefault();
+          },
+          eventsSet : function(events){
+            for(let i = events.length; i--;) {
+              if(events[i].title == "undefined"){
+                events[i].setProp("title", "予定あり");
+              }
+            }
+          }
+        });
+        calendar.render();
+      });
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="contents">
+            <section>
+                <h2>Schedule</h2>
+                <div id="schedule">
+                    <input id="tab1" type="radio" name="tab_name" checked>
+                    <label class="tab_class" for="tab1">予定表</label>
+                    <input id="tab2" type="radio" name="tab_name">
+                    <label class="tab_class" for="tab2">時間割</label>
+                    <div class="content_class" id="content1_class">
+                        <div id='calendar'></div>
+                        <!--<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FTokyo&bgcolor=%23ffffff&showTitle=0&showCalendars=0&src=a2FqaW1hbHUxMEBnbWFpbC5jb20&color=%230B8043" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                    --></div>
+                    <div class="content_class" id="content2_class">
+                        2024 前期
+                        <img src="timetable2024A.jpg">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+<footer>
+</footer>
+</div>
+</body>
+</html>
